@@ -236,7 +236,5 @@ const sentences = {
   random_sentence_money
 };
 
-console.log(sentences);
-
 // EXPORTING OBJECT sentences
 export default sentences;
