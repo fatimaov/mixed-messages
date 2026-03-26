@@ -1,0 +1,312 @@
+/* ============================= */
+/* 1. VARIABLES */
+/* ============================= */
+:root {
+  --primary: #9d85ff;
+  --secondary: #d4af37;
+  --tertiary: #c0c0c0;
+  --neutral: #0b0e14;
+
+  --bg-card: #3f4249;
+  --bg-card-light: #1a1f2e;
+
+  --text-light: #ffffff;
+  --text-muted: #a0a0a0;
+
+  --glow-primary: 0 0 15px rgba(157, 133, 255, 0.5);
+  --glow-secondary: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+/* ============================= */
+/* 2. RESET */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--neutral);
+  color: var(--text-light);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================= */
+/* 3. HEADER */
+/* ============================= */
+#header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.header__menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.header__menu-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.header__menu-link:hover {
+  color: var(--primary);
+  text-shadow: var(--glow-primary);
+}
+
+.header__menu-link--active {
+  color: var(--primary);
+  text-shadow: var(--glow-primary);
+}
+
+.header__actions {
+  display: flex;
+  gap: 15px;
+}
+
+.header__actions i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header__actions i:hover {
+  color: var(--secondary);
+  text-shadow: var(--glow-secondary);
+  transform: scale(1.2);
+}
+
+/* ============================= */
+/* 4. INTRO */
+/* ============================= */
+.header__intro {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.header__subtitle {
+  color: var(--secondary);
+  letter-spacing: 2px;
+}
+
+.header__title {
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+
+.header__meta {
+  color: var(--text-muted);
+}
+
+/* ============================= */
+/* 5. ZODIAC GRID */
+/* ============================= */
+.zodiac__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.zodiac__button {
+  background: none;
+  border: none;
+}
+
+.zodiac__card {
+  background: var(--bg-card);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+/*  HOVER ELEGANTE */
+.zodiac__card:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: linear-gradient(145deg, #1a1f2e, #121622);
+  box-shadow: var(--glow-primary);
+}
+
+.zodiac__icon {
+  font-size: 20px;
+  margin: 10px 0;
+  transition: 0.3s;
+}
+
+.zodiac__card:hover .zodiac__icon {
+  color: var(--secondary);
+  text-shadow: var(--glow-secondary);
+}
+
+.zodiac__name {
+  font-weight: bold;
+}
+
+/* ============================= */
+/* 6. READING CARD */
+/* ============================= */
+#reading {
+  padding: 20px;
+}
+
+.reading__card {
+  background: var(--bg-card);
+  border-radius: 15px;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.reading__card:hover {
+  box-shadow: var(--glow-primary);
+}
+
+/* ============================= */
+/* 7. READING CONTENT */
+/* ============================= */
+.reading__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reading__main {
+  border-left: 3px solid var(--secondary);
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+
+.reading__title {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.reading__subtitle {
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.reading__text {
+  color: var(--text-muted);
+  max-width: 700px;
+}
+
+/* ============================= */
+/* 8. LUCKY SECTION */
+/* ============================= */
+.reading__lucky {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 15px;
+}
+
+.reading__lucky-title {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.reading__lucky-color,
+.reading__lucky-number {
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+/* ============================= */
+/* 9. SECTIONS (LOVE, WORK...) */
+/* ============================= */
+.reading__section {
+  display: grid;
+  gap: 15px;
+}
+
+.reading__section-card {
+  background: var(--bg-card-light);
+  padding: 15px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+/*  HOVER PREMIUM */
+.reading__section-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-secondary);
+}
+
+.reading__section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.reading__section-icon {
+  color: var(--secondary);
+}
+
+.reading__section-title {
+  font-size: 1.2rem;
+}
+
+.reading__section-text {
+  color: var(--text-muted);
+}
+
+/* ============================= */
+/* 10. FOOTER */
+/* ============================= */
+footer {
+  padding: 20px;
+  text-align: center;
+}
+
+.footer__menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+}
+
+.footer__menu-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer__menu-link:hover {
+  color: var(--secondary);
+  text-shadow: var(--glow-secondary);
+}
+
+.footer__copyright {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* ============================= */
+/* 11. RESPONSIVE */
+/* ============================= */
+@media (min-width: 768px) {
+  .reading__content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .reading__section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header__title {
+    font-size: 3rem;
+  }
+}
