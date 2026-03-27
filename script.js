@@ -258,3 +258,11 @@ function showSign(sign) {
   document.getElementById("money-text").innerText = sentences.money;
   document.getElementById("health-text").innerText = sentences.health;
 };
+
+const zodiacButtons = document.querySelectorAll(".zodiac__button");
+
+zodiacButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    showSign(button.id);
+  });
+});
