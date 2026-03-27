@@ -200,37 +200,11 @@ for (let i = 0; i < signNames.length; i++) {
 }
 
 
-function showSign(sign) {
-
-  const data = signs[sign];
-  const sentences = generated[sign];
-
-  // Ensure the reading section is visible once a sign is selected
-  const readingSection = document.getElementById("reading");
-  if (readingSection) {
-    readingSection.style.display = "block";
-  }
-
-  // =========================
-  // UPDATE CARD CONTENT
-  // =========================
-
-  document.getElementById("sign-name").innerText = data.name;
-  document.getElementById("sign-description").innerText = data.description;
-  document.getElementById("sign-type").innerText = data.type;
-  document.getElementById("sign-chart").innerText = data.chart;
-
-  // Lucky color/s Comes in this line, but it's got its special generator below, as
-  // it's not only text, but also the coloured boxes, what is displayed.
-
-  document.getElementById("lucky-numbers").innerText =
-    data.numbers.join(", ");
-
-  // LUCKY COLORS GENERATOR
+function renderLuckyColors(colors) {
   const container = document.getElementById("lucky-colors");
   container.innerHTML = "";
 
-  data.colors.forEach(color => {
+  colors.forEach(color => {
     const item = document.createElement("span");
     item.className = "reading__lucky-color-item";
 
@@ -248,15 +222,43 @@ function showSign(sign) {
     item.appendChild(square);
     container.appendChild(item);
   });
+}
+
+function showSign(sign) {
+  const { name, description, type, chart, numbers, colors } = signs[sign];
+  const { love, work, money, health } = generated[sign];
+
+  // Ensure the reading section is visible once a sign is selected
+  const readingSection = document.getElementById("reading");
+  if (readingSection) {
+    readingSection.style.display = "block";
+  }
+
+  // =========================
+  // UPDATE CARD CONTENT
+  // =========================
+
+  document.getElementById("sign-name").innerText = name;
+  document.getElementById("sign-description").innerText = description;
+  document.getElementById("sign-type").innerText = type;
+  document.getElementById("sign-chart").innerText = chart;
+
+  // Lucky color/s Comes in this line, but it's got its special generator below, as
+  // it's not only text, but also the coloured boxes, what is displayed.
+
+  document.getElementById("lucky-numbers").innerText = numbers.join(", ");
+
+  // LUCKY COLORS GENERATOR
+  renderLuckyColors(colors);
 
   // =========================
   // UPDATE SENTENCES
   // =========================
 
-  document.getElementById("love-text").innerText = sentences.love;
-  document.getElementById("work-text").innerText = sentences.work;
-  document.getElementById("money-text").innerText = sentences.money;
-  document.getElementById("health-text").innerText = sentences.health;
+  document.getElementById("love-text").innerText = love;
+  document.getElementById("work-text").innerText = work;
+  document.getElementById("money-text").innerText = money;
+  document.getElementById("health-text").innerText = health;
 };
 
 const zodiacButtons = document.querySelectorAll(".zodiac__button");
